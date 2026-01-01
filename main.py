@@ -146,13 +146,13 @@ def main():
                 num_rows="dynamic",
                 column_config={
                     "order": st.column_config.NumberColumn("順序", step=1, required=True),
+                    "date": st.column_config.TextColumn("訪問日", required=True),
                     "color": st.column_config.SelectboxColumn("カード色", options=APP_CONFIG["colors"], required=True),
                     "genre": st.column_config.SelectboxColumn("ジャンル", options=APP_CONFIG["genres"], required=True),
-                    # ★ URL列をリンクとして扱う設定
-                    "url": st.column_config.LinkColumn("お店のURL", validate="^https?://"),
+                    "url": st.column_config.LinkColumn("お店のURL", validate="^https?://", required=True),
                     "id": st.column_config.TextColumn("ID", disabled=True)
                 },
-                column_order=["order", "name", "genre", "color"] + [c["id"] for c in APP_CONFIG["criteria"]]
+                column_order=["order", "name", "genre", "color", "date", "url"] + [c["id"] for c in APP_CONFIG["criteria"]]
             )
             
             if st.button("変更を保存"):

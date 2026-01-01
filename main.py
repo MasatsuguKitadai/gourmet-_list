@@ -10,7 +10,7 @@ from datetime import datetime
 APP_CONFIG = {
     "title": "グルメ図鑑",
     "save_file": "gourmet_data.json",
-    "genres": ["和食", "洋食", "中華", "イタリアン", "フレンチ", "スペイン", "ラーメン", "カフェ", "焼肉", "居酒屋", "その他"],
+    "genres": ["和食", "洋食", "中華", "イタリアン", "フレンチ", "スペイン", "ラーメン", "カフェ", "焼肉", "居酒屋", "スイーツ", "その他"],
     "colors": ["Black", "Gold", "Silver", "Bronze", "Normal"],
     "criteria": [
         {"id": "total", "label": "満足度　", "type": "slider", "min": 1, "max": 5},

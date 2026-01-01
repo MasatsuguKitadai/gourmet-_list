@@ -1,0 +1,189 @@
+/* style.css */
+
+/* アプリ全体の背景 */
+.stApp {
+  background-color: #1e1e1e; /* 少し明るめの黒 */
+  color: #f0f2f6;
+}
+
+/* ====================================
+   カードの共通設定
+   ==================================== */
+.card {
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s; /* ホバー時の動き用 */
+}
+
+/* カード内のテキスト共通 */
+.card h3 {
+  margin-top: 0;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* 薄い線 */
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.card-meta {
+  font-size: 0.85em;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.2); /* 文字背景を薄く暗く */
+}
+.card div {
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+/* ====================================
+   色ごとのデザイン定義
+   ==================================== */
+
+/* 黒（Black）: クールなダーク系 */
+.card-Black {
+  background: linear-gradient(135deg, #2c3e50, #000000);
+  color: white;
+  border: 1px solid #444;
+}
+
+/* ノーマル（Normal）: 落ち着いたモノトーン */
+.card-Normal {
+  background-color: #1e1e1e;
+  /* background: linear-gradient(135deg, #eeeeee, #34495e); */
+  color: white;
+}
+
+/* 銀（Silver）: 明るいので文字は黒っぽく */
+.card-Silver {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  color: white; /* 暗め銀なので白文字でOK */
+  border: 1px solid #999;
+}
+
+/* 金（Gold）: ゴージャス */
+.card-Gold {
+  background: linear-gradient(135deg, #f1c043, #725407);
+  color: white;
+  /* color: #2c3e50; 背景が明るいので文字は濃い色 */
+  text-shadow: none;
+}
+.card-Gold h3 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+} /* 金の時は線も黒く */
+
+/* 銅（Bronze）: シブい茶色系 */
+.card-Bronze {
+  background: linear-gradient(135deg, #c38542, #5a4024);
+  color: white;
+}
+
+/* ====================================
+   削除ボタンの配置設定
+   ==================================== */
+
+/* カード自体を「基準点」にする */
+.card {
+  position: relative; /* これがないとボタンが変な場所に飛びます */
+}
+
+/* 削除ボタン（見た目はボタン、中身はリンク） */
+.delete-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.3); /* 半透明の黒 */
+  color: white;
+  text-decoration: none; /* 下線を消す */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* 丸くする */
+  text-align: center;
+  line-height: 30px; /* 文字を上下中央に */
+  font-size: 14px;
+  transition: background-color 0.2s;
+  z-index: 10;
+}
+
+.delete-btn:hover {
+  background-color: #990000; /* ホバー時は赤く */
+  color: white;
+}
+
+/* ====================================
+   削除確認エリアのデザイン
+   ==================================== */
+
+/* 1. 警告ボックス (st.warning) の色をダークレッドに変更 */
+.stAlert {
+  background-color: #4a1c1c !important; /* 暗い赤 */
+  color: #ffcccc !important; /* 薄いピンクの文字 */
+  border-radius: 8px;
+}
+/* アイコンの色も変更 */
+.stAlert [data-testid="stMarkdownContainer"] {
+  font-weight: bold;
+}
+
+/* 2. 「削除」ボタン (type="primary") を赤くする */
+/* button[kind="primary"] で type="primary" のボタンだけを狙い撃ちします */
+button[kind="primary"] {
+  color: white !important;
+  background-color: #e74c3c !important;
+}
+button[kind="primary"]:hover {
+  background-color: #ff0000 !important; /* マウスを乗せると真っ赤に */
+}
+
+/* 3. 「キャンセル」ボタン (通常のボタン) を目立たないグレーに */
+/* 警告エリアの近くにあるボタンだけを変えたいところですが、
+   Streamlitの仕様上難しいので、全体のセカンダリボタンをダークテーマに合わせます */
+button[kind="secondary"] {
+  color: white !important;
+  /* border: 1px solid #555555 !important; */
+}
+button[kind="secondary"]:hover {
+  background-color: #555555 !important;
+}
+
+/* ====================================
+   カードの順番
+   ==================================== */
+
+.number {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  width: 60px;
+  height: 30px;
+  opacity: 0.5;
+}
+
+/* ====================================
+   URL
+   ==================================== */
+
+/* URLボタン本体 */
+.url-button {
+  font-size: 0.85em;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white !important; /* Streamlitのデフォルトリンク色を上書き */
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background-color 0.2s; /* ホバー時の変化を滑らかに */
+}
+
+/* ホバー時の挙動（マウスを乗せた時に少し明るくする） */
+.url-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  color: white !important;
+}

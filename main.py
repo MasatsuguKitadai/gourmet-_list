@@ -290,7 +290,7 @@ def main():
                 <input type="checkbox" id="{safe_id}" class="flip-checkbox">
                 <label for="{safe_id}" class="flip-card-inner">
                     <div class="flip-card-front card {color_class}">
-                        <a href="?confirm_delete={entry['id']}" target="_self" class="delete-btn">✕</a>
+                        <a href="?confirm_delete={entry['id']}" target="_self" class="delete-btn">×</a>
                         <div class="number-tag">No.{entry.get('order', '-')}</div>
                         <h3>{entry['name']}</h3>
                         <div class="card-subtitle">{entry['genre']}</div>

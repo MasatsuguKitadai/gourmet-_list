@@ -8,7 +8,7 @@ from datetime import datetime
 # 1. 設定エリア
 # ==========================================
 APP_CONFIG = {
-    "title": "こだわリスト -グルメ-",
+    "title": "こだわリスト：グルメ",
     "save_file": "gourmet_data.json",
     "genres": ["和食", "洋食", "中華", "イタリアン", "フレンチ", "スペイン", "ラーメン", "カフェ", "焼肉", "居酒屋", "スイーツ", "その他"],
     "colors": ["Black", "Gold", "Silver", "Bronze", "Normal"],

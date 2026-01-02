@@ -8,7 +8,7 @@ from datetime import datetime
 # 1. 設定エリア
 # ==========================================
 APP_CONFIG = {
-    "title": "グルメ図鑑",
+    "title": "こだわリスト -グルメ-",
     "save_file": "gourmet_data.json",
     "genres": ["和食", "洋食", "中華", "イタリアン", "フレンチ", "スペイン", "ラーメン", "カフェ", "焼肉", "居酒屋", "スイーツ", "その他"],
     "colors": ["Black", "Gold", "Silver", "Bronze", "Normal"],
@@ -132,7 +132,7 @@ def main():
     # ---------------------------------------
     # データ管理エリア（★ここを修正）
     # ---------------------------------------
-    with st.expander("データ管理（編集・並べ替え・バックアップ）", expanded=False):
+    with st.expander("データ管理（編集・並べ替え）", expanded=False):
         if data:
             st.info("💡 `order` を変更して「保存」すると並び順が変わります。")
             df = pd.DataFrame(data)
@@ -175,7 +175,7 @@ def main():
     st.subheader("検索・絞り込み")
     fil_col1, fil_col2, fil_col3 = st.columns([1, 1, 1])
     with fil_col1:
-        search_query = st.text_input("店名で検索", placeholder="店名を入力...")
+        search_query = st.text_input("キーワード検索", placeholder="店名、場所 など")
     with fil_col2:
         filter_genres = st.multiselect("ジャンルで絞り込み", options=APP_CONFIG["genres"])
     with fil_col3:
@@ -187,7 +187,14 @@ def main():
     if filter_colors:
         display_data = [d for d in display_data if d.get("color") in filter_colors]
     if search_query:
-        display_data = [d for d in display_data if search_query.lower() in d.get("name", "").lower()]
+        query = search_query.lower()
+        display_data = [
+            d for d in display_data 
+            if query in d.get("name", "").lower() or 
+               query in d.get("genre", "").lower() or 
+               query in d.get("location", "").lower() or 
+               query in d.get("memo", "").lower()
+        ]
 
     st.markdown(f"**表示中: {len(display_data)} 件** / 全 {len(data)} 件")
     st.divider()

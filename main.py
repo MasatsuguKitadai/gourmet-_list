@@ -100,11 +100,11 @@ def main():
             予算の基準です。
             | 評価 | 解説 | 
             |  --- | --- | 
-            | <span style="font-size: 0.78em;">**￥￥￥￥￥**</span> | ～25000円/人 以上 | 
-            | <span style="font-size: 0.78em;">**￥￥￥￥**</span> | ～15000円/人 | 
-            | <span style="font-size: 0.78em;">**￥￥￥**</span> | ～8000円/人 | 
+            | <span style="font-size: 0.78em;">**￥￥￥￥￥**</span> | ～20000円/人 以上 | 
+            | <span style="font-size: 0.78em;">**￥￥￥￥**</span> | ～10000円/人 | 
+            | <span style="font-size: 0.78em;">**￥￥￥**</span> | ～6000円/人 | 
             | <span style="font-size: 0.78em;">**￥￥**</span> | ～4000円/人 | 
-            | <span style="font-size: 0.78em;">**￥**</span> | ～1000円/人（程度） | 
+            | <span style="font-size: 0.78em;">**￥**</span> | 1000円/人（程度） | 
             """, unsafe_allow_html=True)
 
 

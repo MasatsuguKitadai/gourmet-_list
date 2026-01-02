@@ -16,6 +16,7 @@ APP_CONFIG = {
         {"id": "total", "label": "満足度　", "type": "slider", "min": 1, "max": 5},
         {"id": "taste", "label": "料理　　", "type": "slider", "min": 1, "max": 5},
         {"id": "service", "label": "サービス", "type": "slider", "min": 1, "max": 5},
+        {"id": "specialty", "label": "特別感　", "type": "slider", "min": 1, "max": 5},
         {"id": "cost_performance", "label": "コスパ　", "type": "slider", "min": 1, "max": 5},
         {"id": "location", "label": "場所　　", "type": "text"},
         {"id": "atmosphere", "label": "雰囲気　", "type": "selectbox", "options": ["静か", "賑やか", "個室あり", "デート向き", "入りやすい"]},
@@ -64,12 +65,12 @@ def main():
 
     st.title(f"{APP_CONFIG['title']}")
 
-    with st.expander("カードの色・星評価 の基準について", expanded=False):
+    with st.expander("カードの色・★評価・￥評価 の基準について", expanded=False):
             # カードランクの説明
             st.markdown("""
             #### カードの色（ランク）
             「自分の中の特別感」で使い分けます。
-            | ランク | 解説 | 
+            | カラー | 解説 | 
             |  --- | --- | 
             | **Black**  | **至高**：実質的なランクを問わず思い出や体験に紐づく主観も含めて判定。 | 
             | **Gold**   | **秀逸**：感動する。。自信をもって友人に勧められる。 | 
@@ -79,11 +80,11 @@ def main():
             """)
             # 区切り線を入れる
             st.divider()
-            # 星評価の目安委の説明
+            # "★"評価の目安委の説明
             st.markdown("""
-            #### 星評価の目安
-            各項目（満足度・料理・サービス等）の基準です。
-            | 星 | 解説 | 
+            #### "★"評価の目安
+            各項目の基準です。
+            | 評価 | 解説 | 
             |  --- | --- | 
             | **★★★★★** | 記憶に残る強烈な印象。 | 
             | **★★★★☆** | 期待を遥かに凌駕する。 | 
@@ -91,6 +92,21 @@ def main():
             | **★★☆☆☆** | 期待を上回る。 | 
             | **★☆☆☆☆** | 期待通りのクオリティ。 | 
             """)
+                        # 区切り線を入れる
+            st.divider()
+            # "￥"評価の目安委の説明
+            st.markdown("""
+            #### "￥"評価の目安
+            予算の基準です。
+            | 評価 | 解説 | 
+            |  --- | --- | 
+            | <span style="font-size: 0.78em;">**￥￥￥￥￥**</span> | ～20000円/人 以上 | 
+            | <span style="font-size: 0.78em;">**￥￥￥￥**</span> | ～10000円/人 | 
+            | <span style="font-size: 0.78em;">**￥￥￥**</span> | ～6000円/人 | 
+            | <span style="font-size: 0.78em;">**￥￥**</span> | ～3000円/人 | 
+            | <span style="font-size: 0.78em;">**￥**</span> | ～1000円/人（程度） | 
+            """, unsafe_allow_html=True)
+
 
     data = load_data()
 
@@ -227,27 +243,37 @@ def main():
     st.markdown(f"**表示中: {len(display_data)} 件** / 全 {len(data)} 件")
     st.divider()
 
-    # メイン表示（省略なし）
+            # メイン表示
     if not display_data:
         if not data:
             st.info("👈 左のサイドバーから、最初のお店を登録してみましょう！")
         else:
-            st.warning("条件に一致するお店が見つかりませんでした。")
+            st.warning("条件に一致するお店が見てかりませんでした。")
 
     else:
         for entry in display_data:
             color_class = f"card-{entry.get('color', 'Black')}"
             safe_id = f"card_{str(entry['id']).replace('.', '').replace('_', '')}"
             
-            # 表面の星評価（HTMLタグをクラス化）
+            # --- 修正ポイント：星評価 or ￥評価の生成 ---
             front_stars = ""
             for item in APP_CONFIG["criteria"]:
                 if item["type"] == "slider":
                     val = entry.get(item["id"], 1)
                     num_val = int(val) if str(val).isdigit() else 1
-                    stars = "★" * num_val + "☆" * (5 - num_val)
-                    front_stars += f"<div class='rating-item'><strong>{item['label']}：</strong><span class='star-rating'>{stars}</span></div>"
-            
+                    
+                    # コスパ（cost_performance）の場合は ￥ を使用
+                    if item["id"] == "cost_performance":
+                        mark = "￥" * num_val
+                        # 5つ分に満たない場合は、視認性のために薄い色や空白を入れると綺麗です
+                        display_text = f"<span class='yen-rating'>{mark}</span>"
+                    else:
+                        # それ以外は ★ を使用
+                        stars = "★" * num_val + "☆" * (5 - num_val)
+                        display_text = f"<span class='star-rating'>{stars}</span>"
+                    
+                    front_stars += f"<div class='rating-item'><strong>{item['label']}：</strong>{display_text}</div>"
+
             # 裏面の詳細（HTMLタグをクラス化）
             back_info = ""
             for item in APP_CONFIG["criteria"]:

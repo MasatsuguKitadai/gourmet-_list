@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import os
 from datetime import datetime
+from github import Github
 
 # ==========================================
 # 0. 認証機能（追加）
@@ -59,29 +60,80 @@ APP_CONFIG = {
 }
 
 # ==========================================
-# 2. データ処理関数
+# 2. データ処理関数（GitHub版）
 # ==========================================
+
 def load_data():
+    """
+    読み込みはこれまで通りローカルのJSONファイルから行う
+    （Streamlit Cloudはリポジトリの最新状態をcloneして起動するため）
+    """
     if not os.path.exists(APP_CONFIG["save_file"]):
         return []
     with open(APP_CONFIG["save_file"], "r", encoding="utf-8") as f:
-        data = json.load(f)
-        
-    needs_save = False
-    for i, item in enumerate(data):
-        if "order" not in item:
-            item["order"] = i + 1
-            needs_save = True
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            return []
             
-    if needs_save:
-        save_data(data)
-        
     return sorted(data, key=lambda x: x.get("order", 0))
 
 def save_data(data):
+    """
+    GitHub上のファイルを直接更新（commit）して保存する
+    """
+    # まずは並び替え
     data = sorted(data, key=lambda x: x.get("order", 0))
-    with open(APP_CONFIG["save_file"], "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    
+    # JSON文字列に変換（日本語対応）
+    json_content = json.dumps(data, ensure_ascii=False, indent=4)
+    
+    # --- GitHubへの書き込み処理 ---
+    try:
+        # 認証
+        g = Github(st.secrets["GITHUB_TOKEN"])
+        repo = g.get_user(st.secrets["GITHUB_USERNAME"]).get_repo(st.secrets["GITHUB_REPO_NAME"])
+        file_path = st.secrets["DATA_FILE_PATH"]
+        
+        try:
+            # 既存のファイルを取得（更新用）
+            contents = repo.get_contents(file_path)
+            # ファイルを更新（コミットメッセージ: Update gourmet_data.json）
+            repo.update_file(contents.path, "Update gourmet_data.json", json_content, contents.sha)
+            st.toast("☁️ GitHubにデータを保存しました！", icon="✅")
+            
+        except Exception as e:
+            # ファイルがまだない場合は新規作成
+            repo.create_file(file_path, "Create gourmet_data.json", json_content)
+            st.toast("☁️ GitHubに新規ファイルを作成しました！", icon="✅")
+            
+    except Exception as e:
+        st.error(f"保存に失敗しました: {e}")
+
+# # ==========================================
+# # 2. データ処理関数
+# # ==========================================
+# def load_data():
+#     if not os.path.exists(APP_CONFIG["save_file"]):
+#         return []
+#     with open(APP_CONFIG["save_file"], "r", encoding="utf-8") as f:
+#         data = json.load(f)
+        
+#     needs_save = False
+#     for i, item in enumerate(data):
+#         if "order" not in item:
+#             item["order"] = i + 1
+#             needs_save = True
+            
+#     if needs_save:
+#         save_data(data)
+        
+#     return sorted(data, key=lambda x: x.get("order", 0))
+
+# def save_data(data):
+#     data = sorted(data, key=lambda x: x.get("order", 0))
+#     with open(APP_CONFIG["save_file"], "w", encoding="utf-8") as f:
+#         json.dump(data, f, ensure_ascii=False, indent=4)
 
 # ==========================================
 # 3. アプリのメイン処理

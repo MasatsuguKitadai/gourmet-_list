@@ -412,5 +412,23 @@
         "memo": "地下にある焼き鳥屋。おいしくて安い。飲み会におすすめ。",
         "order": 10009,
         "parking": "なし"
+    },
+    {
+        "id": "1767709630.584018",
+        "name": "テスト",
+        "date": "2026-01-06",
+        "genre": "和食",
+        "url": "",
+        "color": "Normal",
+        "order": 10010,
+        "total": 0,
+        "taste": 0,
+        "service": 0,
+        "specialty": 0,
+        "cost_performance": 1,
+        "location": "",
+        "atmosphere": "静か",
+        "parking": "あり",
+        "memo": ""
     }
 ]

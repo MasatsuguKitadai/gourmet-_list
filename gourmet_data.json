@@ -360,24 +360,6 @@
         "parking": "あり"
     },
     {
-        "id": "1767278207.474691",
-        "name": "花もも",
-        "location": "京都市 御所",
-        "date": "ー",
-        "url": "https://maps.app.goo.gl/cz61c75wJXzjxAjr8",
-        "genre": "和食",
-        "color": "Normal",
-        "total": 1,
-        "taste": 1,
-        "service": 1,
-        "specialty": 1,
-        "cost_performance": 2,
-        "atmosphere": "デート向き",
-        "memo": "京都の人気の蕎麦屋。夏のすだちそばがおいしかった。",
-        "order": 10006,
-        "parking": "なし"
-    },
-    {
         "id": "1767182161.45148",
         "name": "MASTER’S DREAM HOUSE 京都",
         "location": "京都市 河原町",

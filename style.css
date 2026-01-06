@@ -158,30 +158,6 @@
   color: white;
 }
 
-/* ボタン類 */
-.delete-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.3);
-  color: white !important;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 30px;
-  text-decoration: none;
-  z-index: 100;
-}
-
-/* カードが反転している間、表面のデリートボタンを隠す */
-.flip-checkbox:checked + .flip-card-inner .delete-btn {
-  opacity: 0;
-  pointer-events: none; /* 裏面操作中に誤ってクリックされるのを防ぐ */
-  visibility: hidden;
-  transition: opacity 0.3s; /* スッと消えるように */
-}
-
 .url-button {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);

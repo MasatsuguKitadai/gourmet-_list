@@ -60,6 +60,7 @@ APP_CONFIG = {
     ]
 }
 
+
 # ==========================================
 # 2. データ処理関数（GitHub版）
 # ==========================================
@@ -126,6 +127,25 @@ def save_data(data):
     # -------------------------------------------------
     # これがないと、rerun()によって一瞬でメッセージが消えてしまいます
     time.sleep(2)
+
+# ==========================================
+# 削除確認ダイアログ（モーダル）
+# ==========================================
+@st.dialog("削除の確認")
+def show_delete_dialog(item_data, current_data):
+    st.write(f"本当に **「{item_data['name']}」** を削除しますか？")
+    st.warning("⚠️この操作は取り消せません。")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("はい、削除します", type="primary", use_container_width=True):
+            # 削除処理を実行
+            new_data = [d for d in current_data if d['id'] != item_data['id']]
+            save_data(new_data)
+            st.rerun() # 完了後にリロード
+    with col2:
+        if st.button("キャンセル", use_container_width=True):
+            st.rerun() # ダイアログを閉じる
 
 # ==========================================
 # 3. アプリのメイン処理
@@ -195,29 +215,6 @@ def main():
 
     data = load_data()
 
-    # 削除確認エリア（省略なし）
-    query_params = st.query_params
-    if "confirm_delete" in query_params:
-        target_id = query_params["confirm_delete"]
-        target_entry = next((item for item in data if item["id"] == target_id), None)
-        
-        if target_entry:
-            with st.container():
-                st.warning(f"⚠️ **削除確認**： 本当に 「{target_entry['name']}」 のカードを削除しますか？")
-                col1, col2, _ = st.columns([2, 2, 5]) 
-                with col1:
-                    if st.button("削除する", type="primary", use_container_width=True):
-                        new_data = [d for d in data if d['id'] != target_id]
-                        save_data(new_data)
-                        st.success("削除しました")
-                        st.query_params.clear()
-                        st.rerun()
-                with col2:
-                    if st.button("キャンセル", use_container_width=True):
-                        st.query_params.clear()
-                        st.rerun()
-            st.divider()
-
     # サイドバー（省略なし）
     with st.sidebar:
         st.header("お店を登録")
@@ -257,6 +254,29 @@ def main():
                 save_data(data)
                 st.success("登録しました！")
                 st.rerun()
+
+    with st.sidebar:
+        # (既存の登録フォームの処理の後に追加)
+        st.markdown("---")
+        st.header("お店を削除")
+        
+        # 削除対象を選択するプルダウン（名前で選ぶ）
+        # 選択しやすいように "名前 (訪問日)" の形式にすると親切です
+        option_map = {f"{d['name']} ({d['date']})": d['id'] for d in data}
+        
+        selected_label = st.selectbox(
+            "削除するお店を選択", 
+            options=[""] + list(option_map.keys()), # 空白を先頭に
+            index=0
+        )
+        
+        if selected_label:
+            target_id = option_map[selected_label]
+            target_item = next((d for d in data if d['id'] == target_id), None)
+            
+            # ★変更：ここをクリックすると、即削除ではなくダイアログを呼び出すように修正
+            if st.button("このお店を削除する", type="primary"):
+                show_delete_dialog(target_item, data)
 
     # ---------------------------------------
     # データ管理エリア（★ここを修正）
@@ -396,13 +416,12 @@ def main():
                     else:
                         back_info += f"<div class='detail-area'><strong>{item['label']}：</strong> {val}</div>"
 
-            # HTML構造（デザインはすべてクラス経由で適用）
+            # HTML構造
             st.markdown(f"""
             <div class="flip-card">
                 <input type="checkbox" id="{safe_id}" class="flip-checkbox">
                 <label for="{safe_id}" class="flip-card-inner">
                     <div class="flip-card-front card {color_class}">
-                        <a href="?confirm_delete={entry['id']}" target="_self" class="delete-btn">×</a>
                         <div class="number-tag">No.{entry.get('order', '-')}</div>
                         <h3>{entry['name']}</h3>
                         <div class="card-subtitle">{entry['genre']}</div>
@@ -417,6 +436,6 @@ def main():
                 </label>
             </div>
             """, unsafe_allow_html=True)
-
+            
 if __name__ == "__main__":
     main()

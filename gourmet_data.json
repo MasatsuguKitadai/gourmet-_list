@@ -538,5 +538,23 @@
         "atmosphere": "入りやすい",
         "parking": "なし",
         "memo": "御所の通りにあるお蕎麦屋。休日は行列ができる人気店。夏のすだちそばがおいしかった。お店の雰囲気がとても良い。"
+    },
+    {
+        "id": "1767797523.010545",
+        "name": "喫茶 上ル",
+        "date": "2026-01-07",
+        "genre": "カフェ",
+        "url": "https://maps.app.goo.gl/oRxob4AnaUjmVdoY8",
+        "color": "Bronze",
+        "order": 10014,
+        "total": 1,
+        "taste": 1,
+        "service": 1,
+        "specialty": 1,
+        "cost_performance": 1,
+        "location": "京都市 河原町",
+        "atmosphere": "デート向き",
+        "parking": "なし",
+        "memo": "四条河原町を少し南に下ったところにあるカフェ。鴨川を見て一息つける。店内の雰囲気がとても良い。デートや友達と行くのがおすすめ。"
     }
 ]

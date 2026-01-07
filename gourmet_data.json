@@ -162,6 +162,24 @@
         "parking": "なし"
     },
     {
+        "id": "1767793988.666172",
+        "name": "炭焼 うな富士",
+        "location": "名古屋市 鶴舞",
+        "date": "2026-01-07",
+        "url": "https://maps.app.goo.gl/uiiPZetiNYy9qSU86",
+        "genre": "和食",
+        "color": "Silver",
+        "total": 3,
+        "taste": 3,
+        "service": 1,
+        "specialty": 2,
+        "cost_performance": 3,
+        "atmosphere": "静か",
+        "memo": "全国にお店を構える鰻の有名店。住宅街にあり、繁華街から少し離れた立地のため本店の割には混んでいないから予約もとれる。駐車場もあり使い勝手も良い。特別な日におすすめ",
+        "order": 105,
+        "parking": "あり"
+    },
+    {
         "id": "176727740579194",
         "name": "ごはんや 一芯 京都",
         "location": "京都市 河原町",
@@ -430,23 +448,5 @@
         "memo": "地下にある焼き鳥屋。おいしくて安い。飲み会におすすめ。",
         "order": 10009,
         "parking": "なし"
-    },
-    {
-        "id": "1767793988.666172",
-        "name": "炭焼 うな富士",
-        "date": "2026-01-07",
-        "genre": "和食",
-        "url": "https://maps.app.goo.gl/uiiPZetiNYy9qSU86",
-        "color": "Silver",
-        "order": 10010,
-        "total": 3,
-        "taste": 3,
-        "service": 1,
-        "specialty": 2,
-        "cost_performance": 3,
-        "location": "名古屋市 鶴舞",
-        "atmosphere": "静か",
-        "parking": "あり",
-        "memo": "全国にお店を構える鰻の有名店。住宅街にあり、繁華街から少し離れた立地のため本店の割には混んでいないから予約もとれる。駐車場もあり使い勝手も良い。特別な日におすすめ"
     }
 ]

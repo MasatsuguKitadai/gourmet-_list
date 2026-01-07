@@ -524,37 +524,37 @@
     {
         "id": "1767797269.307113",
         "name": "手打ちそば 花もも",
+        "location": "京都市 御所",
         "date": "2026-01-07",
-        "genre": "和食",
         "url": "https://maps.app.goo.gl/sc2HYN9Go6JoeyBL9",
+        "genre": "和食",
         "color": "Normal",
-        "order": 10013,
         "total": 2,
         "taste": 1,
         "service": 1,
         "specialty": 1,
         "cost_performance": 2,
-        "location": "京都市 御所",
         "atmosphere": "入りやすい",
-        "parking": "なし",
-        "memo": "御所の通りにあるお蕎麦屋。休日は行列ができる人気店。夏のすだちそばがおいしかった。お店の雰囲気がとても良い。"
+        "memo": "御所の通りにあるお蕎麦屋。休日は行列ができる人気店。夏のすだちそばがおいしかった。お店の雰囲気がとても良い。",
+        "order": 10013,
+        "parking": "なし"
     },
     {
         "id": "1767797523.010545",
         "name": "喫茶 上ル",
+        "location": "京都市 河原町",
         "date": "2026-01-07",
-        "genre": "カフェ",
         "url": "https://maps.app.goo.gl/oRxob4AnaUjmVdoY8",
-        "color": "Bronze",
-        "order": 10014,
+        "genre": "カフェ",
+        "color": "Normal",
         "total": 1,
         "taste": 1,
         "service": 1,
         "specialty": 1,
         "cost_performance": 1,
-        "location": "京都市 河原町",
         "atmosphere": "デート向き",
-        "parking": "なし",
-        "memo": "四条河原町を少し南に下ったところにあるカフェ。鴨川を見て一息つける。店内の雰囲気がとても良い。デートや友達と行くのがおすすめ。"
+        "memo": "四条河原町を少し南に下ったところにあるカフェ。鴨川を見て一息つける。店内の雰囲気がとても良い。デートや友達と行くのがおすすめ。",
+        "order": 10014,
+        "parking": "なし"
     }
 ]

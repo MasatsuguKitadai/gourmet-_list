@@ -578,19 +578,19 @@
     {
         "id": "1768108598.755921",
         "name": "喫茶リッチ",
+        "location": "名古屋市",
         "date": "2026-01-11",
-        "genre": "カフェ",
         "url": "https://maps.app.goo.gl/TbdvFTYEBZveLS5W8?g_st=ic",
+        "genre": "カフェ",
         "color": "Normal",
-        "order": 10015,
         "total": 1,
         "taste": 1,
         "service": 1,
         "specialty": 0,
         "cost_performance": 1,
-        "location": "名古屋市",
         "atmosphere": "静か",
-        "parking": "あり",
-        "memo": ""
+        "memo": "",
+        "order": 10015,
+        "parking": "あり"
     }
 ]

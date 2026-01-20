@@ -592,5 +592,23 @@
         "memo": "",
         "order": 10015,
         "parking": "あり"
+    },
+    {
+        "id": "1768921475.216189",
+        "name": "春日飯店",
+        "date": "2026-01-17",
+        "genre": "中華",
+        "url": "https://maps.app.goo.gl/QsXtYPdZzSMo6DMaA",
+        "color": "Normal",
+        "order": 10016,
+        "total": 1,
+        "taste": 0,
+        "service": 1,
+        "specialty": 0,
+        "cost_performance": 1,
+        "location": "名古屋市上前津",
+        "atmosphere": "入りやすい",
+        "parking": "なし",
+        "memo": "町の中華屋さん。お昼時はお客さんも多い。アットホームな感じで中華料理も家庭の味に近い。本格中華ではないけれど、実家のような安心感を感じたいときにおすすめ。あと、佐野ラーメンもあるみたい。"
     }
 ]

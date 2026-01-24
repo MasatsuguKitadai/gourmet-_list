@@ -342,6 +342,24 @@
         "parking": "なし"
     },
     {
+        "id": "1769258338.026445",
+        "name": "Banshoji bar",
+        "location": "名古屋市 大須",
+        "date": "2026-01-24",
+        "url": "https://maps.app.goo.gl/joxrYL1JTRwSPug69?g_st=ipc",
+        "genre": "カフェ",
+        "color": "Bronze",
+        "total": 2,
+        "taste": 1,
+        "service": 1,
+        "specialty": 1,
+        "cost_performance": 2,
+        "atmosphere": "デート向き",
+        "memo": "万松寺ビルの7階にあるバー。入り口はわかりにくい。隠れ家的でお客さんも少ない。景色は良いようでそんなによくない。カジュアルで入りやすい。本日のフレッシュフルーツカクテルがおすすめ。",
+        "order": 1009,
+        "parking": "なし"
+    },
+    {
         "id": "1767255515.507836",
         "name": "ごま麺",
         "location": "春日井市",
@@ -627,24 +645,6 @@
         "atmosphere": "賑やか",
         "memo": "酒店というだけあって、お酒も多い。海鮮が美味しい。値段はそこそこ。また行きたい。",
         "order": 10017,
-        "parking": "なし"
-    },
-    {
-        "id": "1769258338.026445",
-        "name": "Banshoji bar",
-        "location": "名古屋市 大須",
-        "date": "2026-01-24",
-        "url": "https://maps.app.goo.gl/joxrYL1JTRwSPug69?g_st=ipc",
-        "genre": "カフェ",
-        "color": "Bronze",
-        "total": 2,
-        "taste": 1,
-        "service": 1,
-        "specialty": 1,
-        "cost_performance": 2,
-        "atmosphere": "デート向き",
-        "memo": "万松寺ビルの7階にあるバー。入り口はわかりにくい。隠れ家的でお客さんも少ない。景色は良いようでそんなによくない。カジュアルで入りやすい。本日のフレッシュフルーツカクテルがおすすめ。",
-        "order": 10018,
         "parking": "なし"
     }
 ]

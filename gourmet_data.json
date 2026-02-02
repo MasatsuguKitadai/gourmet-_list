@@ -342,24 +342,6 @@
         "parking": "なし"
     },
     {
-        "id": "1769258338.026445",
-        "name": "Banshoji bar",
-        "location": "名古屋市 大須",
-        "date": "2026-01-24",
-        "url": "https://maps.app.goo.gl/joxrYL1JTRwSPug69?g_st=ipc",
-        "genre": "カフェ",
-        "color": "Bronze",
-        "total": 2,
-        "taste": 1,
-        "service": 1,
-        "specialty": 1,
-        "cost_performance": 2,
-        "atmosphere": "デート向き",
-        "memo": "万松寺ビルの7階にあるバー。入り口はわかりにくい。隠れ家的でお客さんも少ない。景色は良いようでそんなによくない。カジュアルで入りやすい。本日のフレッシュフルーツカクテルがおすすめ。",
-        "order": 1009,
-        "parking": "なし"
-    },
-    {
         "id": "1769923543.125757",
         "name": "大衆飯酒場 ワイロ",
         "location": "名古屋市 栄",
@@ -373,8 +355,8 @@
         "specialty": 1,
         "cost_performance": 2,
         "atmosphere": "賑やか",
-        "memo": "中華居酒屋。お料理は見た目も良くて美味しい。青島ビールがある。バイスサワーも美味しい。ゴッド酒場とそのだを足した感じ。",
-        "order": 1010,
+        "memo": "中華居酒屋。お料理は見た目も良くて美味しい。青島ビールがある。バイスサワーも美味しい。店内はきれいでデート利用もできそう。大阪のGOTTO酒場とそのだを足した感じ。",
+        "order": 1009,
         "parking": "なし"
     },
     {
@@ -663,6 +645,24 @@
         "atmosphere": "賑やか",
         "memo": "酒店というだけあって、お酒も多い。海鮮が美味しい。値段はそこそこ。また行きたい。",
         "order": 10017,
+        "parking": "なし"
+    },
+    {
+        "id": "1769258338.026445",
+        "name": "Banshoji bar",
+        "location": "名古屋市 大須",
+        "date": "2026-01-24",
+        "url": "https://maps.app.goo.gl/joxrYL1JTRwSPug69?g_st=ipc",
+        "genre": "カフェ",
+        "color": "Normal",
+        "total": 1,
+        "taste": 1,
+        "service": 1,
+        "specialty": 1,
+        "cost_performance": 2,
+        "atmosphere": "デート向き",
+        "memo": "万松寺ビルの7階にあるバー。入り口はわかりにくい。隠れ家的でお客さんも少ない。景色は良いようでそんなによくない。カジュアルで入りやすい。本日のフレッシュフルーツカクテルがおすすめ。",
+        "order": 10018,
         "parking": "なし"
     }
 ]

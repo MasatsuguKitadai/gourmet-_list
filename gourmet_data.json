@@ -360,6 +360,24 @@
         "parking": "なし"
     },
     {
+        "id": "1771080146.316477",
+        "name": "魚ト日本酒 あたらよ",
+        "location": "名古屋市栄",
+        "date": "2026-02-14",
+        "url": "https://maps.app.goo.gl/KP9wUQUomKAxE7ZN9?g_st=ic",
+        "genre": "和食",
+        "color": "Bronze",
+        "total": 2,
+        "taste": 2,
+        "service": 1,
+        "specialty": 2,
+        "cost_performance": 3,
+        "atmosphere": "デート向き",
+        "memo": "地下にあって入り口もわかりにくい。店内はきれいでお料理も美味しい。しめに土鍋ごはんは必須。（値段もそこそこするけどね）",
+        "order": 1010,
+        "parking": "なし"
+    },
+    {
         "id": "1767255515.507836",
         "name": "ごま麺",
         "location": "春日井市",
@@ -682,23 +700,5 @@
         "memo": "朝4時までやってるお店。\n店内もきれいで料理も美味しい。",
         "order": 10019,
         "parking": "なし"
-    },
-    {
-        "id": "1771080146.316477",
-        "name": "魚ト日本酒 あたらよ",
-        "date": "2026-02-14",
-        "genre": "和食",
-        "url": "https://maps.app.goo.gl/KP9wUQUomKAxE7ZN9?g_st=ic",
-        "color": "Bronze",
-        "order": 10020,
-        "total": 2,
-        "taste": 2,
-        "service": 1,
-        "specialty": 2,
-        "cost_performance": 3,
-        "location": "名古屋市栄",
-        "atmosphere": "デート向き",
-        "parking": "なし",
-        "memo": "地下にあって入り口もわかりにくい。店内はきれいでお料理も美味しい。しめに土鍋ごはんは必須。（値段もそこそこするけどね）"
     }
 ]
